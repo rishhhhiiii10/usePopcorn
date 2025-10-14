@@ -38,3 +38,35 @@ usePopcorn/
 ├── package.json
 └── README.md
 
+---
+
+## ⚙️ Installation and Setup
+
+1️⃣ Clone the repository
+git clone https://github.com/<your-username>/usePopcorn.git
+cd usePopcorn
+npm install
+npm start
+
+🔑 API Key Setup
+
+The app uses the OMDb API.
+You’ll need your own API key — get one free here: OMDb API Key
+
+Then replace the constant in App.js:
+const KEY = "YOUR_API_KEY_HERE";
+
+🖼 Preview
+<img width="932" height="947" alt="image" src="https://github.com/user-attachments/assets/69d12d0d-2034-4b71-b568-0988d10c5a45" />
+<img width="932" height="947" alt="image" src="https://github.com/user-attachments/assets/162dd276-0fdf-431e-8de6-b40c82b3ea32" />
+
+🧑‍💻 Author
+
+Rishi Kumar
+Frontend Developer | React Enthusiast
+🔗 GitHub-https://github.com/rishhhhiiii10
+💼 LinkedIn-https://www.linkedin.com/in/rishi-kumar-sharma-085382187/
+
+
+
+
