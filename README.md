@@ -26,4 +26,15 @@ Search for movies, view details, rate them yourself, and track what you’ve wat
 ---
 
 ## 🧩 Folder Structure
+usePopcorn/
+│
+├── src/
+│ ├── App.js
+│ ├── StarRating.js
+│ ├── index.js
+│ ├── index.css
+│ └── ...
+│
+├── package.json
+└── README.md
 
