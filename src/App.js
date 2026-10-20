@@ -48,7 +48,7 @@ const tempWatchedData = [
   },
 ];
 
-const KEY = "9199242c";
+const KEY = process.env.REACT_APP_API_KEY;
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -75,7 +75,7 @@ export default function App() {
           setError("");
           const res = await fetch(
             `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            { signal: controller.signal }
+            { signal: controller.signal },
           );
 
           if (!res.ok) throw new Error("something went wrong while fetching");
@@ -105,7 +105,7 @@ export default function App() {
         controller.abort();
       };
     },
-    [query]
+    [query],
   );
 
   function handleMovieSelection(id) {
@@ -125,7 +125,7 @@ export default function App() {
     function () {
       localStorage.setItem("watched", JSON.stringify(watched));
     },
-    [watched]
+    [watched],
   );
 
   return (
@@ -172,7 +172,7 @@ function MoviesDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [userRating, setUserRating] = useState(0);
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
-    (movie) => movie.imdbID === selectedId
+    (movie) => movie.imdbID === selectedId,
   )?.userRating;
 
   const {
@@ -208,7 +208,7 @@ function MoviesDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`,
         );
         const data = await res.json();
         setMovie(data);
@@ -216,7 +216,7 @@ function MoviesDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
       }
       getMovieDetails();
     },
-    [selectedId]
+    [selectedId],
   );
   useEffect(
     function () {
@@ -227,7 +227,7 @@ function MoviesDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
         document.title = "UsePopCorn";
       };
     },
-    [title]
+    [title],
   );
   useEffect(
     function () {
@@ -241,7 +241,7 @@ function MoviesDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
         document.removeEventListener("keydown", callback);
       };
     },
-    [onCloseMovie]
+    [onCloseMovie],
   );
   return (
     <div className="details">
